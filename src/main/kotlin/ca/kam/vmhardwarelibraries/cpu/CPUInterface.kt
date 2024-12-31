@@ -12,14 +12,19 @@ interface CPUInterface {
     fun setRegister(registerIndex: UShort, value: UShort): Boolean
     fun setRegister(register: String, value: UInt): Boolean
     val registers: MemoryDevice
+    fun regIdxToName(rIdx: UShort): String
     //endregion
 
     //region attached devices
-    var memMode: UByte
+    val memMode: UByte
     var cMemSpace: UShort
     val memory: MemoryDevice
     fun getRealAddress(address: UShort): UShort
-    
+    fun moveMemoryBlock(from: UShort, to: UShort, length: UShort)
+
+    fun quickMemMode(nMode: UByte) // use when not crossing memory device bounds
+    fun setupMemMode(nMode: UByte) // use when crossing memory device bounds
+
     fun signal(id: UByte)
     //endregion
 

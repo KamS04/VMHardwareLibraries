@@ -14,7 +14,7 @@ interface TechDevice {
     val isForked: Boolean
     // Device Specifies itself
     fun deviceInfo(): DeviceAsks
-    // Device MUST save the current memory device,
+    // Device MUST   the current memory device,
     // access to said memory device will never be given again
     fun lockBuffer(memory: MemoryDevice)
     // GetCodeArray
